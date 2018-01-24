@@ -67,22 +67,35 @@ HTTP connections
 
 
 
-5cluster healthy node availability metrics
+5.cluster healthy node availability metrics
 
-Cluster status (green, yellow, red)	       cluster.health.status	Other
-Number of nodes	                           cluster.health.number_of_nodes	Resource: Availability
-Number of initializing shards	             cluster.health.initializing_shards	Resource: Availability
-Number of unassigned shards	               cluster.health.unassigned_shards	Resource: Availability
+1.Cluster status (green, yellow, red)	       cluster.health.status	Other
+2.Number of nodes	                           cluster.health.number_of_nodes	Resource: Availability
+3.Number of initializing shards	             cluster.health.initializing_shards	Resource: Availability
+4.Number of unassigned shards	               cluster.health.unassigned_shards	Resource: Availability
 
 
 
 6.Resource saturation and errors metrics
 
 1.Number of queued threads in a thread pool	thread_pool.bulk.queue
-                                          thread_pool.index.queue
-                                          thread_pool.search.queue
-                                          thread_pool.merge.queue	Resource: Saturation
+                                            thread_pool.index.queue
+                                            thread_pool.search.queue
+                                            thread_pool.merge.queue	Resource: Saturation
 2.Number of rejected threads a thread pool	thread_pool.bulk.rejected
-                                          thread_pool.index.rejected
-                                          thread_pool.search.rejected
-                                          thread_pool.merge.rejected	Resource: Error
+                                            thread_pool.index.rejected
+                                            thread_pool.search.rejected
+                                            thread_pool.merge.rejected	Resource: Error
+
+metrics to watch
+Threadpool queues
+Bulk rejections and bulk queues:
+Cache usage metrics
+Fielddata cache
+Filter cache
+
+
+1.Size of the fielddata cache (bytes)	                              indices.fielddata.memory_size_in_bytes	Resource: Utilization
+2.Number of evictions from the fielddata cache	                    indices.fielddata.evictions	Resource: Saturation
+3.Size of the filter cache (bytes) (only pre-version 2.x)	          indices.filter_cache.memory_size_in_bytes	Resource: Utilization
+4.Number of evictions from the filter cache (only pre-version 2.x)	indices.filter_cache.evictions	Resource: Saturation
